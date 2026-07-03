@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard SIMETRI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            display:flex;
+            min-height:100vh;
+            background:#f5f6fa;
+        }
+
+        /* =========================
+           SIDEBAR
+        ========================== */
+
+        .sidebar{
+
+            width:270px;
+
+            background:
+            linear-gradient(
+                180deg,
+                #ff5ab7,
+                #8a4dff
+            );
+
+            color:white;
+
+            padding:25px;
+
+            min-height:100vh;
+        }
+
+        .sidebar-logo{
+
+            text-align:center;
+
+            margin-bottom:40px;
+        }
+
+        .sidebar-logo img{
+
+            width:120px;
+
+            background:white;
+
+            padding:10px;
+
+            border-radius:20px;
+        }
+
+        .sidebar-logo h2{
+
+            margin-top:15px;
+            font-size:24px;
+        }
+
+        .sidebar ul{
+
+            list-style:none;
+        }
+
+        .sidebar ul li{
+
+            margin-bottom:15px;
+        }
+
+        .sidebar ul li a{
+
+            display:block;
+
+            text-decoration:none;
+
+            color:white;
+
+            padding:15px;
+
+            border-radius:15px;
+
+            transition:0.3s;
+        }
+
+        .sidebar ul li a:hover{
+
+            background:
+            rgba(255,255,255,0.2);
+
+            transform:
+            translateX(5px);
+        }
+
+        .active{
+
+            background:
+            rgba(255,255,255,0.25);
+        }
+
+        /* =========================
+           MAIN CONTENT
+        ========================== */
+
+        .main{
+
+            flex:1;
+
+            padding:40px;
+        }
+
+        .header{
+
+            margin-bottom:30px;
+        }
+
+        .header h1{
+
+            color:#333;
+        }
+
+        .header p{
+
+            color:#777;
+        }
+
+        /* =========================
+           CARDS
+        ========================== */
+
+        .cards{
+
+            display:flex;
+
+            gap:25px;
+
+            margin-top:30px;
+
+            flex-wrap:wrap;
+        }
+
+        .card{
+
+            flex:1;
+
+            min-width:220px;
+
+            background:white;
+
+            border-radius:20px;
+
+            padding:30px;
+
+            text-align:center;
+
+            box-shadow:
+            0 10px 25px rgba(0,0,0,0.08);
+
+            transition:0.3s;
+        }
+
+        .card:hover{
+
+            transform:translateY(-5px);
+        }
+
+        .card h3{
+
+            color:#888;
+
+            margin-bottom:15px;
+        }
+
+        .card h2{
+
+            color:#7b3cff;
+
+            font-size:32px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media(max-width:900px){
+
+            body{
+                flex-direction:column;
+            }
+
+            .sidebar{
+
+                width:100%;
+                min-height:auto;
+            }
+
+            .cards{
+
+                flex-direction:column;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <img src="assets/logo-simetri.png" alt="SIMETRI">
+
+            <h2>SIMETRI</h2>
+
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="dashboard.html" class="active">
+                     Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="monitoring.html">
+                     Monitoring
+                </a>
+            </li>
+
+            <li>
+                <a href="controlling.html">
+                     Controlling
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html">
+                     Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main">
+
+        <div class="header">
+
+            <h1>Dashboard SIMETRI</h1>
+
+            <p>
+                Sistem Medis Troli Otonom Terintegrasi
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Battery</h3>
+
+                <h2>85%</h2>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Status</h3>
+
+                <h2>Online</h2>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Troli</h3>
+
+                <h2>Standby</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Panel SIMETRI</title>
+
+```
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Poppins',sans-serif;
+    }
+
+    body{
+        display:flex;
+        min-height:100vh;
+        background:#f5f6fa;
+    }
+
+    /* SIDEBAR */
+
+    .sidebar{
+        width:270px;
+        min-height:100vh;
+        background:linear-gradient(180deg,#ff5ab7,#8a4dff);
+        padding:25px;
+        color:white;
+    }
+
+    .sidebar-logo{
+        text-align:center;
+        margin-bottom:40px;
+    }
+
+    .sidebar-logo img{
+        width:120px;
+        background:white;
+        padding:10px;
+        border-radius:20px;
+    }
+
+    .sidebar-logo h2{
+        margin-top:15px;
+    }
+
+    .sidebar ul{
+        list-style:none;
+    }
+
+    .sidebar ul li{
+        margin-bottom:15px;
+    }
+
+    .sidebar ul li a{
+        display:block;
+        text-decoration:none;
+        color:white;
+        padding:15px;
+        border-radius:15px;
+        transition:.3s;
+    }
+
+    .sidebar ul li a:hover{
+        background:rgba(255,255,255,.2);
+        transform:translateX(5px);
+    }
+
+    .active{
+        background:rgba(255,255,255,.25);
+    }
+
+    /* MAIN */
+
+    .main{
+        flex:1;
+        padding:40px;
+    }
+
+    .header h1{
+        color:#333;
+        margin-bottom:10px;
+    }
+
+    .header p{
+        color:#777;
+    }
+
+    /* STATUS */
+
+    .status-box{
+        background:white;
+        padding:20px 25px;
+        border-radius:20px;
+        margin-top:30px;
+        margin-bottom:30px;
+        box-shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+
+    .status-box h3{
+        margin-bottom:10px;
+    }
+
+    #robotStatus{
+        font-size:20px;
+        font-weight:600;
+        color:#8a4dff;
+    }
+
+    /* ROOM */
+
+    .room-card{
+        background:white;
+        padding:25px;
+        border-radius:20px;
+        box-shadow:0 10px 25px rgba(0,0,0,.08);
+        margin-bottom:30px;
+    }
+
+    .room-card label{
+        display:block;
+        margin-bottom:10px;
+        font-weight:600;
+    }
+
+    .room-card select{
+        width:100%;
+        padding:15px;
+        border:2px solid #ddd;
+        border-radius:12px;
+        font-size:16px;
+    }
+
+    /* START STOP */
+
+    .control-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:25px;
+        margin-bottom:30px;
+    }
+
+    .action-card{
+        background:white;
+        padding:30px;
+        border-radius:20px;
+        box-shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+
+    .action-card h3{
+        margin-bottom:15px;
+    }
+
+    .action-card p{
+        color:#666;
+        line-height:1.7;
+        margin-bottom:25px;
+    }
+
+    /* BUTTON */
+
+    button{
+        transition:.3s;
+    }
+
+    button:disabled{
+        opacity:.5;
+        cursor:not-allowed;
+    }
+
+    .btn-start{
+        width:100%;
+        padding:18px;
+        border:none;
+        border-radius:16px;
+        color:white;
+        font-size:18px;
+        font-weight:600;
+        cursor:pointer;
+        background:linear-gradient(90deg,#ff4fae,#8a4dff);
+    }
+
+    .btn-stop{
+        width:100%;
+        padding:18px;
+        border:2px solid #dca8ff;
+        border-radius:16px;
+        background:white;
+        color:#c38af5;
+        font-size:18px;
+        font-weight:600;
+        cursor:pointer;
+    }
+
+    /* EMERGENCY */
+
+    .emergency-section{
+        background:white;
+        padding:30px;
+        border-radius:20px;
+        box-shadow:0 10px 25px rgba(0,0,0,.08);
+        margin-bottom:30px;
+    }
+
+    .emergency-alert{
+        background:#fff5f5;
+        border:1px solid #ffb8b8;
+        border-radius:16px;
+        padding:20px;
+        color:#c62828;
+        margin-top:15px;
+        margin-bottom:20px;
+    }
+
+    .btn-emergency{
+        background:#ff4747;
+        color:white;
+        border:none;
+        border-radius:16px;
+        padding:18px 30px;
+        font-size:18px;
+        font-weight:600;
+        cursor:pointer;
+    }
+
+    /* HOME */
+
+    .home-section{
+        background:white;
+        padding:30px;
+        border-radius:20px;
+        box-shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+
+    .btn-home{
+        width:100%;
+        background:#8a4dff;
+        color:white;
+        border:none;
+        border-radius:16px;
+        padding:18px;
+        font-size:18px;
+        font-weight:600;
+        cursor:pointer;
+    }
+
+    @media(max-width:900px){
+
+        body{
+            flex-direction:column;
+        }
+
+        .sidebar{
+            width:100%;
+            min-height:auto;
+        }
+
+        .control-grid{
+            grid-template-columns:1fr;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<div class="sidebar">
+
+    <div class="sidebar-logo">
+        <img src="assets/logo-simetri.png" alt="SIMETRI">
+        <h2>SIMETRI</h2>
+    </div>
+
+    <ul>
+        <li><a href="dashboard.html"> Dashboard</a></li>
+        <li><a href="monitoring.html"> Monitoring</a></li>
+        <li><a href="controlling.html" class="active"> Controlling</a></li>
+        <li><a href="index.html"> Logout</a></li>
+    </ul>
+
+</div>
+
+<div class="main">
+
+    <div class="header">
+        <h1>Control Panel SIMETRI</h1>
+        <p>Pengendalian troli medis otonom secara real-time</p>
+    </div>
+
+    <div class="status-box">
+        <h3>Status Robot</h3>
+        <span id="robotStatus">🟢 Standby</span>
+    </div>
+
+    <div class="room-card">
+
+        <label>Pilih Tujuan Ruangan</label>
+
+        <select id="roomSelect">
+            <option value="room1">Ruangan 1</option>
+            <option value="room2">Ruangan 2</option>
+            <option value="room3">Ruangan 3</option>
+            <option value="room4">Ruangan 4</option>
+            <option value="room5">Ruangan 5</option>
+            <option value="room6">Ruangan 6</option>
+        </select>
+
+    </div>
+
+    <div class="control-grid">
+
+        <div class="action-card">
+
+            <h3>Start Robot</h3>
+
+            <p>
+                Activate the medical trolley and begin autonomous operation.
+            </p>
+
+            <button id="startBtn" class="btn-start">
+                ⏻ Start Robot
+            </button>
+
+        </div>
+
+        <div class="action-card">
+
+            <h3>Stop Robot</h3>
+
+            <p>
+                Safely stop the medical trolley and return to standby mode.
+            </p>
+
+            <button id="stopBtn" class="btn-stop" disabled>
+                ⏻ Stop Robot
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="emergency-section">
+
+        <h2>Emergency Controls</h2>
+
+        <div class="emergency-alert">
+
+            <strong>⚠ Emergency Stop</strong>
+
+            <p>
+                Immediately halt all robot operations.
+                Use only in emergency situations.
+            </p>
+
+        </div>
+
+        <button id="emergencyBtn" class="btn-emergency">
+            ⚠ Emergency Stop
+        </button>
+
+    </div>
+
+    <div class="home-section">
+
+        <button id="homeBtn" class="btn-home" disabled>
+             Return Home
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+    function showToast(message){
+
+    const toast =
+    document.getElementById("toast");
+
+    toast.innerHTML = message;
+
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+    },2000);
+
+}
+
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const emergencyBtn = document.getElementById("emergencyBtn");
+    const homeBtn = document.getElementById("homeBtn");
+
+    const robotStatus =
+    document.getElementById("robotStatus");
+
+    startBtn.addEventListener("click",()=>{
+        const tujuan =
+        document.getElementById("roomSelect").value;
+
+        kirimStart(tujuan);
+
+        showToast(" Robot Started");
+
+    robotStatus.innerHTML =
+    "🔵 Running";
+
+    robotStatus.style.color =
+    "#2196f3";
+
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
+
+    homeBtn.disabled = true;
+
+    setTimeout(()=>{
+
+        robotStatus.innerHTML =
+        "🟢 Arrived at Destination";
+
+        robotStatus.style.color =
+        "#28a745";
+
+        stopBtn.disabled = true;
+
+        homeBtn.disabled = false;
+
+    },3000);
+
+});
+
+    stopBtn.addEventListener("click",()=>{
+        kirimStop();
+        showToast(" Robot Stopped");
+
+        robotStatus.innerHTML =
+        "🟢 Standby";
+
+        robotStatus.style.color =
+        "#28a745";
+
+        startBtn.disabled = false;
+
+        stopBtn.disabled = true;
+
+        homeBtn.disabled = true;
+
+    });
+
+    homeBtn.addEventListener("click",()=>{
+
+    robotStatus.innerHTML =
+    "🟠 Returning Home";
+
+    robotStatus.style.color =
+    "#ff9800";
+
+    homeBtn.disabled = true;
+
+    setTimeout(()=>{
+
+        robotStatus.innerHTML =
+        "🟢 Standby";
+
+        robotStatus.style.color =
+        "#28a745";
+
+        startBtn.disabled = false;
+
+    },3000);
+
+});
+
+    emergencyBtn.addEventListener("click",()=>{
+        showToast(" Emergency Stop Activated");
+
+    robotStatus.innerHTML =
+    "🔴 EMERGENCY";
+
+    robotStatus.style.color =
+    "#ff0000";
+
+    startBtn.disabled = true;
+    stopBtn.disabled = true;
+    homeBtn.disabled = true;
+    emergencyBtn.disabled = true;
+
+    alert("EMERGENCY STOP ACTIVATED!");
+
+    // Reset setelah 3 detik
+    setTimeout(()=>{
+
+        robotStatus.innerHTML =
+        "🟢 Standby";
+
+        robotStatus.style.color =
+        "#28a745";
+
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+        homeBtn.disabled = true;
+        emergencyBtn.disabled = false;
+
+    },3000);
+
+});
+
+</script>
+<script type="module">
+
+// kode firebase nanti di sini
+
+</script>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getDatabase,
+  ref,
+  set
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCT0ovWf3eXggDubwd6p9pZcAm9BO6iV2A",
+  authDomain: "simetri-b23b6.firebaseapp.com",
+  databaseURL: "https://simetri-b23b6-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "simetri-b23b6",
+  storageBucket: "simetri-b23b6.firebasestorage.app",
+  messagingSenderId: "81806142295",
+  appId: "1:81806142295:web:892319c77582b1e8612c12"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+window.kirimStart = async function(tujuan){
+
+  await set(ref(db,"command"),{
+    destination: tujuan,
+    start: true
+  });
+
+  console.log("START", tujuan);
+}
+
+window.kirimStop = async function(){
+
+  await set(ref(db,"command"),{
+    destination: "",
+    start: false
+  });
+
+  console.log("STOP");
+}
+
+</script>
+
+
+<div id="toast" class="toast">
+    Notification
+</div>
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+/* ===================================
+   GLOBAL
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#f5f6fa;
+}
+
+/* ===================================
+   LOGIN PAGE
+=================================== */
+
+.container{
+    width:90%;
+    max-width:1300px;
+    height:90vh;
+    display:flex;
+    overflow:hidden;
+    border-radius:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.25);
+}
+
+.left-panel{
+    width:45%;
+    color:white;
+    padding:60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+}
+
+.left-panel h1{
+    font-size:70px;
+    font-weight:700;
+}
+
+.left-panel p{
+    margin-top:10px;
+    font-size:20px;
+}
+
+.line{
+    width:250px;
+    height:4px;
+    background:white;
+    margin:30px 0;
+}
+
+.features{
+    display:flex;
+    gap:40px;
+    margin-top:50px;
+}
+
+.feature{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-size:40px;
+}
+
+.feature span{
+    margin-top:10px;
+    font-size:16px;
+}
+
+/* ===================================
+   LOGIN CARD
+=================================== */
+
+.login-card{
+    width:55%;
+    background:white;
+    border-radius:30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:50px 60px;
+}
+
+.logo{
+    width:190px;
+    height:auto;
+    display:block;
+    margin:0 auto 20px auto;
+}
+
+.subtitle{
+    font-size:18px;
+    color:#777;
+    margin-bottom:35px;
+    text-align:center;
+}
+
+form{
+    width:100%;
+    max-width:450px;
+}
+
+input{
+    width:100%;
+    padding:16px;
+    border:2px solid #ececec;
+    border-radius:12px;
+    margin-bottom:20px;
+    font-size:15px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#c44cff;
+}
+
+button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:600;
+    color:white;
+    cursor:pointer;
+    background:linear-gradient(
+        90deg,
+        #ff4fae,
+        #7b3cff
+    );
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(123,60,255,.4);
+}
+
+.register{
+    margin-top:25px;
+    color:#666;
+}
+
+.register a{
+    color:#ff3fa8;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* ===================================
+   SIDEBAR
+=================================== */
+
+.sidebar{
+    width:260px;
+    min-height:100vh;
+    background:linear-gradient(
+        180deg,
+        #ff5ab7,
+        #8a4dff
+    );
+    padding:25px;
+    color:white;
+}
+
+.sidebar-logo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.sidebar-logo img{
+    width:120px;
+    background:white;
+    padding:8px;
+    border-radius:20px;
+}
+
+.sidebar-logo h2,
+.sidebar-logo h3{
+    margin-top:15px;
+    font-size:24px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin-bottom:15px;
+}
+
+.sidebar ul li a{
+    display:block;
+    text-decoration:none;
+    color:white;
+    padding:15px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.sidebar ul li a:hover{
+    background:rgba(255,255,255,0.2);
+    transform:translateX(5px);
+}
+
+.active{
+    background:rgba(255,255,255,0.25);
+}
+
+/* ===================================
+   MAIN CONTENT
+=================================== */
+
+.main{
+    flex:1;
+    padding:40px;
+}
+
+.header{
+    margin-bottom:30px;
+}
+
+.header h1{
+    color:#333;
+}
+
+.header p{
+    color:#777;
+}
+
+/* ===================================
+   DASHBOARD & MONITORING CARDS
+=================================== */
+
+.cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    margin-top:20px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card h3{
+    color:#888;
+    margin-bottom:15px;
+}
+
+.card h2{
+    color:#7b3cff;
+    font-size:32px;
+}
+
+/* ===================================
+   MAP POSITION
+=================================== */
+
+.position-card{
+    margin-top:25px;
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.position-card h2{
+    color:#7b3cff;
+    margin-bottom:20px;
+}
+
+.position-info{
+    font-size:20px;
+    line-height:2;
+}
+
+.position-info span{
+    font-weight:600;
+}
+
+/* ===================================
+   BATTERY BAR
+=================================== */
+
+.battery-bar{
+    width:100%;
+    height:12px;
+    background:#eee;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.battery-fill{
+    width:85%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        #ff5ab7,
+        #8a4dff
+    );
+}
+
+/* ===================================
+   MINI MAP
+=================================== */
+
+.mini-map{
+    width:100%;
+    height:250px;
+    background:#f5f5f5;
+    border-radius:15px;
+    position:relative;
+    overflow:hidden;
+}
+
+.robot-dot{
+    width:20px;
+    height:20px;
+    background:#8a4dff;
+    border-radius:50%;
+    position:absolute;
+    left:50%;
+    top:50%;
+}
+
+/* ===================================
+   TOAST NOTIFICATION
+=================================== */
+
+.toast{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#8a4dff;
+    color:white;
+    padding:15px 25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    opacity:0;
+    visibility:hidden;
+    transition:0.3s;
+    z-index:1000;
+    font-weight:500;
+}
+
+.toast.show{
+    opacity:1;
+    visibility:visible;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media(max-width:900px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        width:100%;
+        min-height:auto;
+    }
+
+    .main{
+        padding:20px;
+    }
+}
