@@ -321,11 +321,6 @@
     </div>
 
     <div class="card">
-         <h3>Speed</h3>
-         <h2 id="speed">0 m/s</h2>
-    </div>
-
-    <div class="card">
          <h3>RPM Left</h3>
          <h2 id="rpmLeft">0</h2>
     </div>
@@ -380,13 +375,6 @@ onValue(monitoringRef, (snapshot) => {
 
   document.getElementById("current").innerHTML =
     data.current + " A";
-
-  const speed =
-    ((Number(data.speed_left) +
-      Number(data.speed_right)) / 2).toFixed(2);
-
-  document.getElementById("speed").innerHTML =
-    speed + " m/s";
 
     document.getElementById("rpmLeft").innerHTML =
     data.rpm_left;
